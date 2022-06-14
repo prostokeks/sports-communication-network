@@ -156,8 +156,39 @@
 
         <!-- Experience and education -->
         <div class="bg-white p-3 shadow-sm rounded-sm">
+          <% if current_user.present? && current_user.id ==  @user.id %>
+          <%= link_to "Add results", new_sport_table_path %>
+          <% end %>
+          <% if @user.sport_tables.any? %>
+          <div>
+            <table>
+              <thead>
+              <tr>
+                <th>User_id</th>
+                <th>Date</th>
+                <th>Weight</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @sport_results.where(user_id: @user).each do |s| %>
+              <tr>
+                <td><%= s.user_id %></td>
+                <td><%= s.created_at.strftime("%d/%m/%Y") %></td>
+                <td><%= s.weight %></td>
+                <td><%= link_to "Show", sport_table_path(s) %></td>
+                <% if current_user == s.user %>
+                <td><%= link_to "Edit", edit_sport_table_path(s) %></td>
+                <td><%= link_to "Delete", sport_table_path(s), data: { "turbo-method": :delete,
+                                                                          turbo_confirm: "You sure?" } %></td>
+                <% end %>
+              </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <%= will_paginate @sport_results.where(user_id: @user)%>
+          </div>
 
-          <div class="grid grid-cols-2">
+          <!--<div class="grid grid-cols-2">
             <div>
               <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                 <span clas="text-green-500">
@@ -215,7 +246,9 @@
             </div>
           </div>
           <!-- End of Experience and education grid -->
+          <% end %>
         </div>
+
         <!-- End of profile tab -->
       </div>
     </div>
