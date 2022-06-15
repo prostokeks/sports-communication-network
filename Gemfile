@@ -79,3 +79,5 @@ gem "devise", "~> 4.8"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "will_paginate"
+
+gem "pagy"

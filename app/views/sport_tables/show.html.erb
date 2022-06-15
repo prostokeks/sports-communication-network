@@ -1,1 +1,24 @@
-<%= @sport_result.weight %>
+<% provide(:header, "Sport result for " + @sport_result.created_at.strftime("%d.%m.%Y")) %>
+
+<table class="rounded-lg m-5 w-full mx-auto bg-gray-200 text-gray-800 text-center">
+  <thead>
+  <tr class="border-b-2 border-gray-300">
+    <th class="py-3">Weight</th>
+    <th class="py-3">Chest</th>
+    <th class="py-3">Waist</th>
+    <th class="py-3">Belly</th>
+    <th class="py-3">Ass</th>
+    <th class="py-3">Leg</th>
+  </tr>
+  </thead>
+  <tbody>
+     <tr class="bg-white border-b border-gray-200 ">
+      <td class="py-3"><%= @sport_result.weight %></td>
+      <td><%= @sport_result.chest %></td>
+      <td><%= @sport_result.waist %></td>
+      <td><%= @sport_result.belly %></td>
+      <td><%= @sport_result.ass %></td>
+      <td><%= @sport_result.leg %></td>
+    </tr>
+  </tbody>
+</table>

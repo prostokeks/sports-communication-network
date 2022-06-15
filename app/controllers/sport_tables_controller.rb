@@ -40,6 +40,6 @@ class SportTablesController < ApplicationController
   end
 
   def sport_result_params
-    params.require(:sport_table).permit(:weight)
+    params.require(:sport_table).permit(:weight, :chest, :waist, :belly, :ass, :leg, images:[])
   end
 end

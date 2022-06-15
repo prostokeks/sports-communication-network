@@ -4,5 +4,35 @@
     <%= f.text_field :weight, required: true %>
   </div>
 
+  <div>
+    <%= f.label :chest %>
+    <%= f.text_field :chest, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :waist %>
+    <%= f.text_field :waist, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :belly %>
+    <%= f.text_field :belly, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :ass %>
+    <%= f.text_field :ass, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :leg %>
+    <%= f.text_field :leg, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
   <%= f.submit "Submit results" %>
 <% end %>

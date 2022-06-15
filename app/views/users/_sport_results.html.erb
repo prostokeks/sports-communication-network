@@ -1,0 +1,63 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+  rel="stylesheet">
+
+<% if @user.sport_tables.any? %>
+  <div>
+    <table class="rounded-lg m-5 w-full mx-auto bg-gray-200 text-gray-800 text-center">
+      <thead>
+      <tr class="border-b-2 border-gray-300">
+        <th class="py-3">Date</th>
+        <th class="py-3">Weight</th>
+        <th class="py-3">Chest</th>
+        <th class="py-3">Waist</th>
+        <th class="py-3">Belly</th>
+        <th class="py-3">Ass</th>
+        <th class="py-3">Leg</th>
+        <th class="py-3">Images</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @sport_results.where(user_id: @user).each do |s| %>
+        <tr class="bg-white border-b border-gray-200 ">
+          <td class="py-3"><%= s.created_at.strftime("%d.%m.%Y") %></td>
+          <td><%= s.weight %></td>
+          <td><%= s.chest %></td>
+          <td><%= s.waist %></td>
+          <td><%= s.belly %></td>
+          <td><%= s.ass %></td>
+          <td><%= s.leg %></td>
+          <td><% if s.images.attached? %>
+              <div class="flex flex-row-reverse justify-around -space-x-3 space-x-reverse">
+                <div class="flex flex-row-reverse justify-end -space-x-3 space-x-reverse">
+                  <% s.images.each do |image| %>
+                    <div class="relative flex h-8 w-8 shrink-0 select-none items-center justify-center rounded-full bg-gray-100 text-sm font-bold uppercase text-gray-800 ring ring-white">
+                      <%= image_tag image, class:"h-full w-full rounded-full object-cover object-center" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %></td>
+          <td class="p-3">
+            <%= link_to(sport_table_path(s), class: "text-gray-400 hover:text-blue-300 mr-2") do %>
+              <i class="material-icons-outlined text-base">visibility</i>
+            <% end %>
+            <% if current_user == s.user %>
+              <%= link_to(edit_sport_table_path(s), class: "text-gray-400 hover:text-blue-300 mr-2") do %>
+                <i class="material-icons-outlined text-base">edit</i>
+              <% end %>
+              <%= link_to(sport_table_path(s), data: { "turbo-method": :delete,
+                                                       turbo_confirm: "You sure?" }, class: "text-gray-400 hover:text-blue-300 mr-2") do %>
+                <i class="material-icons-round text-base">delete_outline</i>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="digg_pagination">
+      <%= will_paginate @sport_results.where(user_id: @user)%>
+    </div>
+  </div>
+<% end %>

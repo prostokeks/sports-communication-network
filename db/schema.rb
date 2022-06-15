@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_13_115452) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_14_195356) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_115452) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "chest"
+    t.string "waist"
+    t.string "belly"
+    t.string "ass"
+    t.string "leg"
     t.index ["user_id"], name: "index_sport_tables_on_user_id"
   end
 
