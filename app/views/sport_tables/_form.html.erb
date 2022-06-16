@@ -1,38 +1,48 @@
+
+
 <%= form_with model: @sport_result do |f| %>
-  <div>
-    <%= f.label :weight %>
-    <%= f.text_field :weight, required: true %>
-  </div>
 
-  <div>
-    <%= f.label :chest %>
-    <%= f.text_field :chest, required: true %>
-  </div>
+  <form>
+    <div class="grid xl:grid-cols-2 xl:gap-6">
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :weight, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: ""  %>
+        <%= f.label :weight, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :chest, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: "" %>
+        <%= f.label :chest, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"  %>
+      </div>
+    </div>
+    <div class="grid xl:grid-cols-2 xl:gap-6">
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :waist, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: ""  %>
+        <%= f.label :waist, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :belly, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: ""  %>
+        <%= f.label :belly, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      </div>
+    </div>
+    <div class="grid xl:grid-cols-2 xl:gap-6">
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :ass, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: ""  %>
+        <%= f.label :ass, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.text_field :leg, required: true, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " ", required: "" %>
+        <%= f.label :leg, class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"  %>
+      </div>
+    </div>
+    <div class="grid xl:grid-cols-2 xl:gap-6">
+      <div class="relative z-0 w-full mb-6 group">
+        <%= f.label :images, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"%>
+        <%= f.file_field :images, multiple: true, class: "block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
+        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Pictures of your results</div>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+      </div>
+    </div>
+    <%= f.submit "Continue", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+  </form>
 
-  <div>
-    <%= f.label :waist %>
-    <%= f.text_field :waist, required: true %>
-  </div>
-
-  <div>
-    <%= f.label :belly %>
-    <%= f.text_field :belly, required: true %>
-  </div>
-
-  <div>
-    <%= f.label :ass %>
-    <%= f.text_field :ass, required: true %>
-  </div>
-
-  <div>
-    <%= f.label :leg %>
-    <%= f.text_field :leg, required: true %>
-  </div>
-
-  <div>
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
-  </div>
-
-  <%= f.submit "Submit results" %>
 <% end %>
