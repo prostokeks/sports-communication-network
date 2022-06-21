@@ -13,7 +13,7 @@
           <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <%= link_to "Home", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
-          <%= link_to "Articles", article_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+          <%= link_to "Articles", articles_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
           <%= link_to "About", about_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
@@ -31,7 +31,6 @@
         <nav :class="{'flex': open, 'hidden': !open}"
              class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
           <div @click.away="open = false" class="relative" x-data="{ open: false }">
-            <%=  %>
             <% if user_signed_in?  %>
             <button @click="open = !open"
                     class="flex flex-row items-center space-x-2 w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent md:w-auto md:inline md:mt-0 md:ml-4">
@@ -39,7 +38,7 @@
               <% if current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar, class: "inline w-8 h-8 rounded-full" %>
               <% else %>
-                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                <img class="inline h-8 w-8 rounded-full" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
               <% end %>
             <% else %>
               <%= link_to "Sing in", new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>

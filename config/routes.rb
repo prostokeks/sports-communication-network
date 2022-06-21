@@ -6,11 +6,14 @@ Rails.application.routes.draw do
 
   resources :sport_tables
   resources :users, only: [:show, :index]
+  resources :articles do
+    resources :coments
+  end
+
 
   get "about", to: 'static_pages#about'
   get "contact", to: 'static_pages#contact'
   get "help", to: 'static_pages#help'
-  get "article", to: 'static_pages#article'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

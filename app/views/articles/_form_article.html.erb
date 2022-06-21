@@ -1,0 +1,28 @@
+<%= form_with model: @article do |a| %>
+  <div>
+    <%= a.label :title %>
+    <%= a.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= a.label :small_content %>
+    <%= a.text_area :s_content, required: true %>
+  </div>
+
+  <div>
+    <%= a.label :content %>
+    <%= a.text_area :content, required: true %>
+  </div>
+
+  <div>
+    <%= a.label :category %>
+    <%= a.text_field :category, required: true %>
+  </div>
+
+  <div>
+    <%= a.label :images %>
+    <%= a.file_field :images, multiple: true %>
+  </div>
+
+  <%= a.submit "Continue" %>
+<% end %>

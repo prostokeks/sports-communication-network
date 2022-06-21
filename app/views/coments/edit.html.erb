@@ -1,0 +1,7 @@
+<%= form_with(model: [@article, @comment], local: true) do |c| %>
+  <div>
+    <%= c.label :content %>
+    <%= c.text_field :content, required: true %>
+  </div>
+  <%= c.submit "submit" %>
+<% end %>

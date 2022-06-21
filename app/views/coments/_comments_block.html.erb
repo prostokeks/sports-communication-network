@@ -1,0 +1,66 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+  rel="stylesheet">
+
+
+<div class="container mt-5">
+
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-md-8">
+
+      <% for coment in @article.coments %>
+      <div class="rounded-lg card p-3 mt-2 w-full mx-auto prose md:w-3/4 lg:w-1/2 bg-sky-300">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+          <div class="user d-flex flex-row align-items-center">
+
+            <% if User.find(coment.user_id).avatar.attached? %>
+              <%= image_tag User.find(coment.user_id).avatar, class: "my-1 inline w-12 h-12 rounded-full py-1" %>
+            <% else %>
+              <img class="my-1 inline w-12 h-12 rounded-full py-1" src="https://st2.depositphotos.com/47577860/46283/v/450/depositphotos_462836132-stock-illustration-assassin-deadpool-face-icon.jpg" alt="">
+            <% end %>
+
+            <span><small class="font-weight-bold text-primary"><%= link_to (user_path(coment.user_id)) do %> <%= User.find(coment.user_id).name %> <%= User.find(coment.user_id).last_name %> <% end %></small>
+              <small><%= coment.created_at.strftime("%B %d, %Y") %></small></span>
+
+            <p class="my-1 font-weight-bold"><%= coment.content %></p>
+          </div>
+        </div>
+
+        <div class="action d-flex justify-content-between mt-2 align-items-center">
+          <% if user_signed_in? and current_user.workgroup == "Admin" || current_user.id == coment.user_id %>
+            <%= link_to(edit_article_coment_path(@article, coment), class: "text-black-400 hover:text-blue-800 mr-2") do %>
+              <i class="material-icons-outlined text-base">edit</i>
+            <% end %>
+            <%= link_to([@article, coment], data: { "turbo-method": :delete,
+                                           turbo_confirm: "You sure?" }, class: "text-black-400 hover:text-blue-800 mr-2") do %>
+              <i class="material-icons-round text-base">delete_outline</i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+
+<% if user_signed_in?  %>
+  <%= form_with(model: [@article, @article.coments.build], local: true) do |c| %>
+    <div class="flex justify-center min-h-screen mt-2 w-full mx-auto prose md:w-3/4 lg:w-1/2">
+      <div class="h-64  w-full rounded-[12px] ">
+        <div>
+          <%= c.label :add_comment, class: "text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black" %>
+          <%= c.text_area :content, required: true, class: "h-40 px-3 text-sm py-1 mt-5 outline-none border-pink-300 w-full resize-none border rounded-lg placeholder:text-sm", placeholder: "Add your comments here" %>
+        </div>
+        <div class="flex justify-between mt-2">
+          <%= c.submit "Add comment", class: "h-12 w-[150px] bg-blue-800 text-sm text-white rounded-lg transition-all cursor-pointer hover:bg-blue-600" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
