@@ -1,0 +1,9 @@
+<% provide(:header, "Contact") %>
+
+<% @contacts.each do |c| %>
+  <%= c.name %>
+  <%= c.email %>
+  <%= c.message %>
+  <%= link_to "Delete", contact_path(c), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, class: "flex items-center flex-shrink-0 px-5 py-2 border-b-4 dark:border-gray-800 dark:text-gray-800 hover:dark:border-blue-500 hover:dark:text-blue-500" %>
+
+<% end %>

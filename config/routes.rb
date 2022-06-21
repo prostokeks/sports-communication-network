@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :articles do
     resources :coments
   end
+  resources :contacts, only: [:new, :index, :destroy, :create]
 
 
   get "about", to: 'static_pages#about'
-  get "contact", to: 'static_pages#contact'
   get "help", to: 'static_pages#help'
 
 
