@@ -1,0 +1,10 @@
+<%= form_with model: @room do |r| %>
+  <%= r.label :title %>
+  <%= r.text_field :title, required: true %>
+
+  <%= r.label :content %>
+  <%= r.text_field :content, required: true %>
+
+  <%= r.submit "Submit" %>
+
+<% end %>

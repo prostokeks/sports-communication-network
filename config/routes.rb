@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, controllers: {registrations: "users/registrations",
                                    sessions: "users/sessions"}
   root "static_pages#index"
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
     resources :coments
   end
   resources :contacts, only: [:new, :index, :destroy, :create]
-
+  resources :rooms do
+    resources :chats
+  end
 
   get "about", to: 'static_pages#about'
   get "help", to: 'static_pages#help'
