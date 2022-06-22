@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
+
   before_action :set_room, only: [:show, :edit, :destroy, :update]
+
   def index
     @rooms = Room.all
   end
@@ -28,14 +30,13 @@ class RoomsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def destroy
     @room.destroy
     redirect_to rooms_path
   end
 
+  def show
+  end
 
   private
 

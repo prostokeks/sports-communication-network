@@ -1,5 +1,8 @@
 <%= @room.title %>
 <%= @room.content %>
-<%= link_to "Back", :back %>
+
 <%= link_to "Edit", edit_room_path(@room) %>
-<%= link_to "Delete", room_path(@room), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, class: "flex items-center flex-shrink-0 px-5 py-2 border-b-4 dark:border-gray-800 dark:text-gray-800 hover:dark:border-blue-500 hover:dark:text-blue-500" %>
+<%= link_to "Delete", room_path(@room), data: { "turbo-method": :delete,
+                                                turbo_confirm: "You sure?" } %>
+<%= link_to "Back", rooms_path %>
+<%= render "chats/chat_block" %>

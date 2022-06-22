@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :sport_tables, dependent: :destroy
   has_many :articles
   has_many :coments, dependent: :destroy
-  has_many :chat, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
 end
