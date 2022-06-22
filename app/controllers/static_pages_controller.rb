@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @articles = Article.paginate(page:params[:page], per_page: 5)
+    @rooms = Room.all
   end
 
   def about

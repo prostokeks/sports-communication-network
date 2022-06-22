@@ -1,24 +1,25 @@
-# README
+#Проект: Спорт-паблік
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Що реалізовано:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Можна реєструвати акк (використав Devise)
+* Створена сторінка Profile під кожний акк(автоматично формується). На ній відображається:
+  1. Аватар (використав ActiveStorage)
+  2. Коротка інформація про юзера (додав до Devise нові строки в db)
+  3. Табличка з фіз результатами (відображає по конкретному юзеру інф)
+  4. Відображається статус юзера
+* Створена таблиця Sport result:
+  1. Створена таблиця в db
+  2. Можна вносити інформацію з результатами та додавати фото
+* Створена сторінка контакти:
+  1. Створена таблиця в db
+* Створена сторінка статті:
+  1. Створена таблиця в db
+  2. Создана форма на основі db
+* Створені коментарі до статтей:
+  1. Створена таблиця в db
+  2. Прив'язка коментарів під кожну статтю
+* Створений розділ форум:
+  1. Можна створювати кімнати
+  2. Можна чатитись в кімнатах 
+* Створені робочі групи юзерів (Admin, writer, user). У кожної групи є свій функціонал (хто може створювати статті, хто кімнати, ...)

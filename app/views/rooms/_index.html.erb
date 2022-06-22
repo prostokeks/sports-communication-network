@@ -1,9 +1,29 @@
-<%= link_to "Add room", new_room_path %>
 
-<% @rooms.each do |r| %>
-  <%= r.created_at.strftime("%d %b %Y") %>
-  <%= r.title %>
-  <%= link_to "Show", room_path(r) %>
-  <%= link_to "Edit", edit_room_path(r) %>
-  <%= link_to "Delete", room_path(r), data: { "turbo-method": :delete, turbo_confirm: "You sure?" }, class: "flex items-center flex-shrink-0 px-5 py-2 border-b-4 dark:border-gray-800 dark:text-gray-800 hover:dark:border-blue-500 hover:dark:text-blue-500" %>
-<% end %>
+
+<div class="flex items-center -mx-4 space-x-2 overflow-x-auto overflow-y-hidden sm:justify-center flex-nowrap dark:text-gray-100">
+  <% if user_signed_in? and current_user.workgroup == "Admin" %>
+    <%= link_to "Add room", new_room_path, class: "flex items-center flex-shrink-0 px-5 py-2 border-b-4 dark:border-gray-800 dark:text-gray-800 hover:dark:border-blue-500 hover:dark:text-blue-500" %>
+  <% end %>
+</div>
+
+<section>
+  <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+    <div class="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
+      <% @rooms.each do |r| %>
+      <div class="p-6">
+        <% if r.avatar.attached? %>
+          <%= image_tag r.avatar, class: "object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl" %>
+        <% else %>
+          <img class="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl" src="https://vjoy.cc/wp-content/uploads/2020/10/bezymyannyjepe.jpg" alt="blog">
+        <% end %>
+
+        <h1 class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl"><%= r.title %></h1>
+
+        <div class="mt-4">
+          <%= link_to "Read More »", room_path(r), class: "inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
